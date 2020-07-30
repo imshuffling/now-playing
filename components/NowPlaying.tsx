@@ -1,6 +1,6 @@
-import React from "react";
-import ReadmeImg from "./ReadmeImg";
-import Text from "./Text";
+import React from 'react';
+import ReadmeImg from './ReadmeImg';
+import Text from './Text';
 
 export interface Props {
   cover?: string;
@@ -23,7 +23,7 @@ export const Player: React.FC<Props> = ({
     <ReadmeImg width="256" height="64">
       <style>
         {`
-            .paused { 
+            .paused {
               animation-play-state: paused !important;
               background: #e1e4e8 !important;
             }
@@ -46,7 +46,6 @@ export const Player: React.FC<Props> = ({
               height: 4px;
               margin: -1px;
               border: 1px solid #e1e4e8;
-              border-radius: 4px;
               overflow: hidden;
               padding: 2px;
               z-index: 0;
@@ -59,11 +58,11 @@ export const Player: React.FC<Props> = ({
               width: 100%;
               height: 6px;
               transform-origin: left center;
-              background-color: #24292e;
+              background-color: #ff3ca9;
               animation: progress ${duration}ms linear;
               animation-delay: -${progress}ms;
             }
-            
+
             .progress-bar,
             #track,
             #artist,
@@ -126,33 +125,32 @@ export const Player: React.FC<Props> = ({
         `}
       </style>
       <div
-        className={isPlaying ? "disabled" : ""}
+        className={isPlaying ? 'disabled' : ''}
         style={{
-          display: "flex",
-          alignItems: "center",
-          paddingTop: 8,
+          display: 'flex',
+          alignItems: 'center',
           paddingLeft: 4,
         }}
       >
         <img id="cover" src={cover ?? null} width="48" height="48" />
         <div
           style={{
-            display: "flex",
+            display: 'flex',
             flex: 1,
-            flexDirection: "column",
+            flexDirection: 'column',
             marginTop: -4,
             marginLeft: 8,
           }}
         >
           <Text id="track" weight="bold">
-            {`${track ?? ""} `.trim()}
+            {`${track ?? ''} `.trim()}
           </Text>
-          <Text id="artist" color={!track ? "gray" : undefined}>
-            {artist || "Nothing playing..."}
+          <Text id="artist" color={!track ? 'gray' : undefined}>
+            {artist || 'Nothing playing...'}
           </Text>
           {track && (
             <div className="progress-bar">
-              <div id="progress" className={!isPlaying ? "paused" : ""} />
+              <div id="progress" className={!isPlaying ? 'paused' : ''} />
             </div>
           )}
         </div>
