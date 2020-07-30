@@ -20,7 +20,7 @@ export const Player: React.FC<Props> = ({
   isPlaying,
 }) => {
   return (
-    <ReadmeImg width="256" height="64">
+    <ReadmeImg width="500" height="64">
       <style>
         {`
             .paused {
@@ -86,6 +86,7 @@ export const Player: React.FC<Props> = ({
               animation-name: cover-appear;
               animation-delay: 300ms;
               box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 3px 10px rgba(0,0,0,0.05);
+              border-radius: 2px;
             }
 
             #cover:not([src]) {
