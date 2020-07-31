@@ -45,7 +45,7 @@ export const Player: React.FC<Props> = ({
               width: 100%;
               height: 4px;
               margin: -1px;
-              border: 1px solid #e1e4e8;
+              background: #e1e4e8;
               overflow: hidden;
               padding: 2px;
               z-index: 0;
