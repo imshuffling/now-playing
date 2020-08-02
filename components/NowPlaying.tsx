@@ -84,8 +84,9 @@ export const Player: React.FC<Props> = ({
 
             #now-playing {
               animation-delay: 200ms;
-              margin-bottom: 10px;
+              margin-bottom: 12px;
               padding-left: 4px;
+              opacity: 1;
             }
 
             #cover {
