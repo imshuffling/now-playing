@@ -80,6 +80,11 @@ export const Player: React.FC<Props> = ({
             #track {
               animation-delay: 400ms;
             }
+
+            .marquee {
+              animation: marquee 5s linear infinite;
+            }
+
             #artist {
               animation-delay: 500ms;
             }
@@ -129,6 +134,16 @@ export const Player: React.FC<Props> = ({
                 transform: scaleX(1)
               }
             }
+
+            @keyframes marquee {
+              0% {
+                left: 0;
+              }
+              100% {
+                left: -100%;
+              }
+            }
+
         `}
       </style>
       {track !== null && (
@@ -155,7 +170,11 @@ export const Player: React.FC<Props> = ({
             marginLeft: 8,
           }}
         >
-          <Text id="track" weight="bold">
+          <Text
+            id="track"
+            className={track.length > 62 ? 'marquee' : ''}
+            weight="bold"
+          >
             {`${track ?? ''} `.trim()}
           </Text>
           <Text id="artist" color={!track ? 'gray' : undefined}>
