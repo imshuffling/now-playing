@@ -135,7 +135,7 @@ export const Player: React.FC<Props> = ({
         `}
       </style>
       {isPlaying !== undefined && (
-        <Text id="now-playing">
+        <Text id="now-playing" className={isPlaying}>
           <strong>Now Playing</strong> on Spotify
         </Text>
       )}
