@@ -19,6 +19,8 @@ export const Player: React.FC<Props> = ({
   duration,
   isPlaying,
 }) => {
+  console.log(isPlaying);
+
   return (
     <ReadmeImg width="500" height={isPlaying ? '90' : '60'}>
       <style>
