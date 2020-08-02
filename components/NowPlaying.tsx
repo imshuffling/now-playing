@@ -74,6 +74,7 @@ export const Player: React.FC<Props> = ({
             #now-playing {
               animation-delay: 200ms;
               opacity: 1;
+              margin-bottom: 16px;
             }
 
             #track {
