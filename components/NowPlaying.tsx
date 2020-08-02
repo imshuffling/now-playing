@@ -20,7 +20,7 @@ export const Player: React.FC<Props> = ({
   isPlaying,
 }) => {
   return (
-    <ReadmeImg width="500" height="64">
+    <ReadmeImg width="500" height={!track ? '64' : '90'}>
       <style>
         {`
             .paused {
@@ -69,6 +69,11 @@ export const Player: React.FC<Props> = ({
             #cover {
               opacity: 0;
               animation: appear 300ms ease-out forwards;
+            }
+
+            #now-playing {
+              animation-delay: 200ms;
+              opacity: 1;
             }
 
             #track {
@@ -125,12 +130,16 @@ export const Player: React.FC<Props> = ({
             }
         `}
       </style>
+      {track !== null && (
+        <Text id="now-playing">
+          <strong>Now Playing</strong> on Spotify
+        </Text>
+      )}
       <div
         className={isPlaying ? 'disabled' : ''}
         style={{
           display: 'flex',
           alignItems: 'center',
-          paddingLeft: 4,
         }}
       >
         <img id="cover" src={cover ?? null} width="48" height="48" />
