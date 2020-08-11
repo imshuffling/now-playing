@@ -89,6 +89,10 @@ export const Player: React.FC<Props> = ({
               margin-top: 4px;
             }
 
+            .hide {
+              display: none;
+            }
+
             #cover {
               animation-name: cover-appear;
               animation-delay: 300ms;
@@ -132,11 +136,9 @@ export const Player: React.FC<Props> = ({
             }
         `}
       </style>
-      {track !== null && (
-        <Text id="now-playing">
-          <strong>Now Playing</strong> on Spotify
-        </Text>
-      )}
+      <Text id="now-playing" className={!isPlaying ? 'hide' : 'show'}>
+        <strong>Now Playing</strong> on Spotify
+      </Text>
       <div
         className={isPlaying ? 'disabled' : ''}
         style={{
