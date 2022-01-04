@@ -146,7 +146,7 @@ export const Player: React.FC<Props> = ({
           alignItems: 'center',
         }}
       >
-        <img id="cover" src={cover ?? null} width="48" height="48" />
+        <img id="cover" src={cover ?? "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/232px-Spotify_icon.svg.png"} width="48" height="48" />
         <div
           style={{
             display: 'flex',
