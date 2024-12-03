@@ -5,6 +5,7 @@ import { getBlockColor, setBlockColor } from "../../utils/db";
 import { getNextColor } from '../../utils/colors';
 import { createHash } from 'crypto';
 
+
 export default async function (req: NowRequest, res: NowResponse) {
   const { query: { num }, headers } = req;
   const index = Number.parseInt(num as string) - 1;

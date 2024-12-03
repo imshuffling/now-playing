@@ -3,6 +3,7 @@ import { renderToString } from "react-dom/server";
 import { decode } from "querystring";
 import { Player } from "../components/NowPlaying";
 import { nowPlaying } from "../utils/spotify";
+import fetch from 'node-fetch';
 
 export default async function (req: NowRequest, res: NowResponse) {
   const {
