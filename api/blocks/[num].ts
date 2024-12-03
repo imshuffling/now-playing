@@ -10,8 +10,9 @@ export default async function (req: NowRequest, res: NowResponse) {
   const index = Number.parseInt(num as string) - 1;
   const dest = headers["sec-fetch-dest"] || headers["Sec-Fetch-Dest"];
   const accept = headers['accept'];
+  // @ts-ignore
   const image = dest ? dest === 'image' : !/text\/html/.test(accept);
-  
+
   const color = await getBlockColor(index);
   if (image) {
     const svg = renderToString(Block({ color }));
@@ -21,7 +22,7 @@ export default async function (req: NowRequest, res: NowResponse) {
     res.setHeader("Etag", etag);
     return res.status(200).send(svg);
   }
-  
+
   const newColor: string = getNextColor(color);
   await setBlockColor(index, newColor);
   return res.status(204).end();

@@ -1,5 +1,6 @@
 import React from "react";
 
+// @ts-ignore
 const ReadmeImg = ({ width, height, children }) => {
   return (
     <svg
