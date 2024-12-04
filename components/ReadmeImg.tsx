@@ -1,21 +1,35 @@
-import React from "react";
+import React from 'react';
 
-// @ts-ignore
 const ReadmeImg = ({ width, height, children }) => {
   return (
     <svg
-      fill="none"
+      fill='none'
       width={width}
       height={height}
       viewBox={`0 0 ${width} ${height}`}
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns='http://www.w3.org/2000/svg'
     >
       <foreignObject width={width} height={height}>
-        <div {...{ xmlns: "http://www.w3.org/1999/xhtml" }}>
+        <div {...{ xmlns: 'http://www.w3.org/1999/xhtml' }}>
           <style>{`
               * {
                 margin: 0;
                 box-sizing: border-box;
+              }
+              :root {
+                color: rgb(36, 41, 46);
+                background: #FFF;
+              }
+
+              @media (prefers-color-scheme: dark) {
+                :root {
+                  color: rgb(201, 209, 217);
+                  background: rgb(13, 17, 23);
+                }
+
+                p {
+                  color: inherit !important;
+                }
               }
             `}</style>
           {children}
