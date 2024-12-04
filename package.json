@@ -26,7 +26,6 @@
     "type": "git",
     "url": "git+https://github.com/natemoo-re/natemoo-re.git"
   },
-  "type": "module",
   "keywords": [],
   "author": "Nate Moore",
   "license": "ISC",
