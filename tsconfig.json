@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ESNext", // Ensures compatibility with ES modules
-    "module": "ESNext", // Ensures ES module syntax in output
+    "module": "CommonJS",
     "moduleResolution": "node",
-    "strict": true,
+    "target": "ES2017",
+    "jsx": "react",
     "esModuleInterop": true,
-    "jsx": "react-jsx", // For JSX support
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

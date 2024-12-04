@@ -1,8 +1,5 @@
 import { NowRequest, NowResponse } from "@vercel/node";
-// import { renderToString } from "react-dom/server";
-
-// @ts-ignore
-import { renderToString } from 'react-dom/server';
+import { renderToString } from "react-dom/server";
 import { decode } from "querystring";
 import { Player } from "../components/NowPlaying";
 import { nowPlaying } from "../utils/spotify";
