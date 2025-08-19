@@ -29,18 +29,28 @@ async function getAuthorizationToken() {
 }
 
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+
 export async function nowPlaying() {
-  const Authorization = await getAuthorizationToken();
-  const response = await fetch(NOW_PLAYING_ENDPOINT, {
-    headers: {
-      Authorization,
-    },
-  });
-  const { status } = response;
-  if (status === 204) {
+  try {
+    const Authorization = await getAuthorizationToken();
+    const response = await fetch(NOW_PLAYING_ENDPOINT, {
+      headers: {
+        Authorization,
+      },
+    });
+    const { status } = response;
+
+    if (status === 204) {
+      return {};
+    } else if (status === 200) {
+      const data = await response.json();
+      return data;
+    } else {
+      console.error(`Spotify API returned status ${status}`);
+      return {};
+    }
+  } catch (error) {
+    console.error('Error fetching now playing:', error);
     return {};
-  } else if (status === 200) {
-    const data = await response.json();
-    return data;
   }
 }
