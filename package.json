@@ -1,42 +1,23 @@
 {
-  "name": "natemoo-re",
+  "name": "now-playing",
   "private": true,
-  "version": "1.0.0",
-  "description": "Github profile",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Spotify now-playing SVG for GitHub profile",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
-    "faunadb": "^2.14.2",
-    "isomorphic-unfetch": "^3.0.0",
-    "node-fetch": "^3.3.2",
-    "querystring": "^0.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.3.1",
-    "typescript": "^3.9.6"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
-    "@types/node": "^14.0.22",
-    "@types/react": "^16.9.42",
-    "@types/react-dom": "^16.9.24",
-    "@vercel/node": "^1.7.2",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/natemoo-re/natemoo-re.git"
-  },
-  "keywords": [],
-  "author": "Nate Moore",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/natemoo-re/natemoo-re/issues"
-  },
-  "homepage": "https://github.com/natemoo-re/natemoo-re#readme",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "@types/node": "^24.0.0",
+    "@types/react": "19.2.17",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"

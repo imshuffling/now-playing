@@ -1,6 +1,3 @@
-import fetch from "isomorphic-unfetch";
-import { stringify } from "querystring";
-
 const {
   SPOTIFY_CLIENT_ID: client_id,
   SPOTIFY_CLIENT_SECRET: client_secret,
@@ -8,39 +5,35 @@ const {
 } = process.env;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
-const Authorization = `Basic ${basic}`;
 
 async function getAuthorizationToken() {
-  const url = new URL("https://accounts.spotify.com/api/token");
-  const body = stringify({
-    grant_type: "refresh_token",
-    refresh_token,
-  });
-  const response = await fetch(`${url}`, {
+  const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
-      Authorization,
+      Authorization: `Basic ${basic}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body,
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refresh_token ?? "",
+    }),
   }).then((r) => r.json());
 
   return `Bearer ${response.access_token}`;
 }
 
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+
 export async function nowPlaying() {
   const Authorization = await getAuthorizationToken();
   const response = await fetch(NOW_PLAYING_ENDPOINT, {
     headers: {
       Authorization,
     },
+    cache: "no-store",
   });
-  const { status } = response;
-  if (status === 204) {
-    return {};
-  } else if (status === 200) {
-    const data = await response.json();
-    return data;
+  if (response.status === 200) {
+    return response.json();
   }
+  return {};
 }

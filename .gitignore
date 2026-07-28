@@ -2,3 +2,7 @@
 .env
 node_modules
 .DS_STORE
+.next
+next-env.d.ts
+.env*.local
+.env*
